@@ -6,6 +6,11 @@ pub use cty::*;
 
 include!(concat!(env!("OUT_DIR"), "/base.rs"));
 
+// Fix broken generation. Bindgen creates pointer types, but not concrete types
+pub type SE_ADT_PARAMETER_TYPE = _SE_ADT_PARAMETER_TYPE::Type;
+pub type MSV1_0_LOGON_SUBMIT_TYPE = _MSV1_0_LOGON_SUBMIT_TYPE::Type;
+
+
 pub const STATUS_SUCCESS:                  NTSTATUS = 0x00000000;
 pub const STATUS_GUARD_PAGE_VIOLATION:     NTSTATUS = 0x80000001 as u32 as i32;
 pub const STATUS_DATATYPE_MISALIGNMENT:    NTSTATUS = 0x80000002 as u32 as i32;
